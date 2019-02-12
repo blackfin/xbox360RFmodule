@@ -13,6 +13,7 @@ int SYNC[10] = {0,0,0,0,0,0,0,1,0,0}; //Displays the XBOX 360 controller sync LE
 volatile boolean isSyncEnable = false;
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -43,15 +44,18 @@ void initRFModule(){
  * these commands are sent in big-endian (MSB first) bit-order.
  */
 void sendDataToXbox(int cmd[]) {
+  Serial.println("Send data to xbox");
   pinMode(data_pin, OUTPUT);
   digitalWrite(data_pin, LOW); //pulls DATA low to start communication 
   int prev = 1;
   for(int i = 0; i < 10; i++) {
+    digitalWrite(LED_BUILTIN, HIGH);
     while (prev == digitalRead(clk_pin)){} //waits for CLOCK to go low
     prev = digitalRead(clk_pin);  //should be after downward edge of clock, so send bit of data now
     digitalWrite(data_pin, cmd[i]);//sets DATA to the current bit's value
     while (prev == digitalRead(clk_pin)){} //waits for CLOCK to go high
     prev = digitalRead(clk_pin);
+    digitalWrite(LED_BUILTIN, LOW); 
   }
   //release DATA
   digitalWrite(data_pin, HIGH);
