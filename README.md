@@ -1,10 +1,15 @@
 # xbox360RFmodule
-XBOX 360 RF Module
-https://tkkrlab.nl/wiki/XBOX_360_RF_Module
+Thanks this guy who reversed some commands over the interface of XBOX 360 RF Module https://tkkrlab.nl/wiki/XBOX_360_RF_Module
+This is not full protocol, only sending parts. Receiving not implemented TBD
 
-Some test points for rf boards
+Some test points in rf module
+![GitHub Logo](/revH-RF01.jpeg)
 
-* Vcc - TP18
-* 2 (D-) - TP13
-* 3 (D+) - TP14
-* 4 (GND) - TP9, TP10
+
+* (Vcc) - TP18
+* (USB D-) - TP13
+* (USB D+) - TP14
+* (GND) - TP9, TP10
+* Button - no test point
+* Data - TP16
+* CLK - TP15
