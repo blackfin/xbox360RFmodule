@@ -27,4 +27,4 @@ For fast proto I used arduino board from one of these chinese seller
 ![connector](/proto-1.jpg)
 
 Connect to ubuntu box
-[/xbox360-rf-module.png]
+![](xbox360-rf-module.png?raw=true)
